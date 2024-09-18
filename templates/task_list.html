@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container task-list">
+        <h1>MY TASKS</h1>
+        <a href="{% url 'task_add' %}">Add new task</a>
+        <ul>
+            {% if tasks %}
+            {% for task in tasks %}
+            <li>
+                <a href="{% url 'task_detail' task.pk %}">{{ task.title }}</a>
+            </li>
+            {% endfor %}
+            {% else %}
+            <p>No tasks, Add new tasks </p>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock content %}
